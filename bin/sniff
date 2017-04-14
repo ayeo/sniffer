@@ -50,9 +50,15 @@ foreach ($changedFilesList as $file) {
 
 	echo "\n".$file."\n";
 	foreach ($array as $row) {
-		//todo: search one line below and above
+		//search one line below and above the problem
 		if (isset($row[1]) && is_numeric($row[1])) {
 			if (array_search($row[1], $lines) !== false) {
+				$exit = 1;
+				echo sprintf("%s \t | %s\n", $row[1], $row[4]);
+			} else if (array_search($row[1]+1, $lines) !== false) {
+				$exit = 1;
+				echo sprintf("%s \t | %s\n", $row[1], $row[4]);
+			} else if (array_search($row[1]-1, $lines) !== false) {
 				$exit = 1;
 				echo sprintf("%s \t | %s\n", $row[1], $row[4]);
 			}
