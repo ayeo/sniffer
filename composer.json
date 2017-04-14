@@ -9,7 +9,7 @@
       "email": "me@ayeo.pl"
     }
   ],
-  "bin": ["bin/sniffer"],
+  "bin": ["bin/sniff"],
   "autoload": {
     "psr-4": {
       "": "src/"

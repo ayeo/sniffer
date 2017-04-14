@@ -1,5 +1,6 @@
 #!/usr/bin/env php
 <?php
+
 $path = __DIR__."/../../ticket/isklep/";
 $exit = 0;
 
