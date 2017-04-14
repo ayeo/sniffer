@@ -13,6 +13,10 @@ $changedLineNumbers = "cd %s && git blame -p %s -- %s | grep %s";
 
 foreach ($changedFilesList as $file) {
 	$lines = [];
+	if (file_exists($file) === false) {
+	    continue;
+    }
+
 	$xx = sprintf($changedLineNumbers, $path, $commitSHA, $file, $commitSHA);
 
 	foreach (explode("\n", `$xx`) as $row) {
