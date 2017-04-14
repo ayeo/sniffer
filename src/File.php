@@ -33,4 +33,21 @@ class File
 	{
 		return $this->changedLinesNumbers;
 	}
+
+	public function isChanged($lineNumber)
+	{
+		if (array_search($lineNumber, $this->changedLinesNumbers) !== false) {
+			return true;
+		}
+
+		if (array_search($lineNumber+1, $this->changedLinesNumbers) !== false) {
+			return true;
+		}
+
+		if (array_search($lineNumber-1, $this->changedLinesNumbers) !== false) {
+			return true;
+		}
+
+		return false;
+	}
 }

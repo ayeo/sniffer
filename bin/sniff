@@ -11,42 +11,18 @@ $finder = new Ayeo\Sniffer\ChangedFilesFinder($path);
 $files = $finder->findAll($commitSHA);
 
 $sniffer = new \Ayeo\Sniffer\Sniffer($path."/code_style/ISystems/ruleset.xml");
+
+/* @var $file \Ayeo\Sniffer\File */
 foreach ($files as $file) {
-    //var_dump($file->getChangedLinesNumbers());
+    echo sprintf("\nFile: %s\n", $file->getFileFullPath());
     $report = $sniffer->getReport($file);
-    var_dump($report);
+
+    /* @var $row \Ayeo\Sniffer\ReportRow */
+    foreach ($report as $row) {
+        if ($file->isChanged($row->getLineNumber())) {
+			echo sprintf("| %s | %s\t| %s\n", $row->getLineNumber(), $row->getType(), $row->getMessage());
+        }
+    }
 }
-
-
-
-
-
-//foreach ($changedFilesList as $file) {
-//
-//	$command = './vendor/bin/phpcs --standard=%s/code_style/ISystems/ruleset.xml %s --report=csv';
-//	$xxx = sprintf($command, $path, $path.$file);
-//	$ddddd = explode(PHP_EOL, `$xxx`);
-//	$array = [];
-//	foreach ($ddddd as $line) {
-//		$array[] = str_getcsv($line);
-//	}
-//
-//	echo "\n".$file."\n";
-//	foreach ($array as $row) {
-//		//search one line below and above the problem
-//		if (isset($row[1]) && is_numeric($row[1])) {
-//			if (array_search($row[1], $lines) !== false) {
-//				$exit = 1;
-//				echo sprintf("%s \t | %s\n", $row[1], $row[4]);
-//			} else if (array_search($row[1]+1, $lines) !== false) {
-//				$exit = 1;
-//				echo sprintf("%s \t | %s\n", $row[1], $row[4]);
-//			} else if (array_search($row[1]-1, $lines) !== false) {
-//				$exit = 1;
-//				echo sprintf("%s \t | %s\n", $row[1], $row[4]);
-//			}
-//		}
-//	}
-//}
 
 exit($exit);
