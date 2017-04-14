@@ -14,7 +14,7 @@ $changedLineNumbers = "cd %s && git blame -p %s -- %s | grep %s";
 foreach ($changedFilesList as $file) {
 	$lines = [];
 	if (file_exists($file) === false) {
-	    continue;
+	    continue; //skip deleted
     }
 
 	$xx = sprintf($changedLineNumbers, $path, $commitSHA, $file, $commitSHA);
