@@ -1,14 +1,20 @@
 {
-    "name": "ayeo/sniffer",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "ayeo ci",
-            "email": "me@ayeo.pl"
-        }
-    ],
-    "require": {
-        "squizlabs/php_codesniffer": "^2.8"
+  "name": "ayeo/sniffer",
+  "type": "library",
+  "license": "MIT",
+  "version": "0.1",
+  "authors": [
+    {
+      "name": "ayeo ci",
+      "email": "me@ayeo.pl"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "": "src/"
+    }
+  },
+  "require": {
+    "squizlabs/php_codesniffer": "^2.8"
+  }
 }
