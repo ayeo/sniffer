@@ -1,3 +1,8 @@
+Sniffer
+=======
+
+The library is simple wrapper for PHPCS. It just show report for lines changed in particular commit not for whole file. It is usefull for Continuous Integration.
+
 Installation
 ============
 
