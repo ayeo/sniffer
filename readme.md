@@ -34,3 +34,13 @@ File: application/modules/behat_api/src/V1/Model/Producer.php
 | 9 | error	| Line indented incorrectly; expected 4 spaces, found 1
 | 9 | error	| Spaces must be used for alignment; tabs are not allowed
 ```
+
+Issues
+======
+
+Feel free to submit issues and enhancement requests.
+
+Contributing
+============
+
+Everyone welcome 
