@@ -15,7 +15,7 @@ This will be moved to packagist in future
 Usage
 =====
 
-From your project root type:
+From your project root directory type:
 ```
 ./vendor/bin/sniff
 ```
