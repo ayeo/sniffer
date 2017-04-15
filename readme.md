@@ -1,14 +1,12 @@
-Sniffer
-=======
+About
+=====
 
-The library is simple wrapper for PHPCS. It just show report for lines changed in particular commit not for whole file. It is usefull for Continuous Integration.
+Library is Code Sniffer that scans only recently modified lines. Under the hood it uses PHPCS and just filter report to lines changed whithin particular commit. I have built this simple tool to support my Continuous Integration. It may turns out usefull for others struggling with large lecacy code base.
 
 Installation
 ============
 
-Add custom repo to your composer repositories and install: 
 ```
-composer.phar config repositories.ayeo git git@github.com:ayeo/sniffer.git
 composer require ayeo/sniffer
 ```
 
