@@ -1,7 +1,7 @@
 About
 =====
 
-This is the code sniffer that scans only recently modified lines. Under the hood it uses PHPCS and just filter report to lines changed whithin particular commit. I have built this simple tool to support my Continuous Integration. It may turns out usefull for others struggling with large lecacy code base.
+This is the code sniffer that scans only recently modified lines. Under the hood it uses PHPCS and just filter report to lines changed within particular commit. I have built this simple tool to support my Continuous Integration. It may turns out usefull for others struggling with large legacy code base.
 
 Installation
 ============
@@ -9,8 +9,6 @@ Installation
 ```
 composer require ayeo/sniffer
 ```
-
-This will be moved to packagist in future
 
 Usage
 =====
