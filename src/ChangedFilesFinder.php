@@ -19,7 +19,10 @@ class ChangedFilesFinder
 
 		$filesCollection = [];
 		foreach ($changedFilesList as $filePath) {
-			if (file_exists($filePath) === false) {
+			$pathInfo = pathinfo($filePath);
+			$extension = key_exists('extension', $pathInfo) ? $pathInfo['extension'] : null;
+			$isPHP = $extension == 'php' ? true : false;
+			if (file_exists($filePath) === false || $isPHP == false) {
 				continue; //skip deleted
 			}
 
