@@ -3,21 +3,29 @@ namespace Ayeo\Sniffer;
 
 class Sniffer
 {
+    /**
+     * @var string
+     */
 	private $standardFile;
-	private $basePath;
 
-	public function construct($basePath, $standardFile)
+    /**
+     * @param string $standardFile
+     */
+	public function __construct($standardFile)
 	{
-		$this->basePath = $basePath;
 		$this->standardFile = $standardFile;
 	}
 
+    /**
+     * @param File $file
+     * @return array
+     */
 	public function getReport(File $file)
 	{
 		$rows = [];
 
-		$command = './vendor/bin/phpcs --standard=%s%s %s --report=csv';
-		$xxx = sprintf($command, $this->basePath, $this->standardFile, $this->basePath.$file->getFileFullPath());
+		$command = './vendor/bin/phpcs --standard=%s %s --report=csv';
+		$xxx = sprintf($command, $this->standardFile, $file->getFileFullPath());
 		$ddddd = explode(PHP_EOL, `$xxx`);
 		$array = [];
 		foreach ($ddddd as $line) {

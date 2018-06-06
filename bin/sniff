@@ -2,7 +2,7 @@
 <?php
 require("./vendor/autoload.php");
 
-$path = __DIR__."/../../../../";
+$path = getcwd();
 $exit = 0;
 
 $commitSHA = substr(`cd $path && git rev-parse HEAD`, 0, 8);
@@ -10,7 +10,7 @@ $commitSHA = substr(`cd $path && git rev-parse HEAD`, 0, 8);
 $finder = new Ayeo\Sniffer\ChangedFilesFinder($path);
 $files = $finder->findAll($commitSHA);
 
-$sniffer = new \Ayeo\Sniffer\Sniffer($path."/code_style/ISystems/ruleset.xml");
+$sniffer = new \Ayeo\Sniffer\Sniffer(__DIR__."/styles/ruleset.xml");
 
 /* @var $file \Ayeo\Sniffer\File */
 foreach ($files as $file) {
