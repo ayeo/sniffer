@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
-require(__DIR__."/../../../autoload.php");
-
+$vendorPath = __DIR__."/../../..";
+require($vendorPath."/autoload.php");
 
 $path = getcwd();
 $exit = 0;
@@ -11,7 +11,7 @@ $commitSHA = substr(`cd $path && git rev-parse HEAD`, 0, 8);
 $finder = new Ayeo\Sniffer\ChangedFilesFinder($path);
 $files = $finder->findAll($commitSHA);
 
-$sniffer = new \Ayeo\Sniffer\Sniffer(__DIR__."/styles/ruleset.xml");
+$sniffer = new \Ayeo\Sniffer\Sniffer(__DIR__."/styles/ruleset.xml", $vendorPath);
 
 /* @var $file \Ayeo\Sniffer\File */
 foreach ($files as $file) {

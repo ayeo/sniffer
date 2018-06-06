@@ -7,14 +7,17 @@ class Sniffer
      * @var string
      */
 	private $standardFile;
+    private $vendorPath;
 
     /**
      * @param string $standardFile
+     * @param $vendorPath
      */
-	public function __construct($standardFile)
+	public function __construct($standardFile, $vendorPath)
 	{
 		$this->standardFile = $standardFile;
-	}
+        $this->vendorPath = $vendorPath;
+    }
 
     /**
      * @param File $file
@@ -24,8 +27,8 @@ class Sniffer
 	{
 		$rows = [];
 
-		$command = './vendor/bin/phpcs --standard=%s %s --report=csv';
-		$xxx = sprintf($command, $this->standardFile, $file->getFileFullPath());
+		$command = '%s/bin/phpcs --standard=%s %s --report=csv';
+		$xxx = sprintf($command, $this->vendorPath, $this->standardFile, $file->getFileFullPath());
 		$ddddd = explode(PHP_EOL, `$xxx`);
 		$array = [];
 		foreach ($ddddd as $line) {
