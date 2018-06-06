@@ -21,6 +21,7 @@ foreach ($files as $file) {
     foreach ($report as $row) {
         if ($file->isChanged($row->getLineNumber())) {
 			echo sprintf("| %s | %s\t| %s\n", $row->getLineNumber(), $row->getType(), $row->getMessage());
+			$exit = 1;
         }
     }
 }
