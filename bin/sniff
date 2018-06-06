@@ -1,6 +1,7 @@
 #!/usr/bin/env php
 <?php
-require("./vendor/autoload.php");
+require(__DIR__."/../../../autoload.php");
+
 
 $path = getcwd();
 $exit = 0;
