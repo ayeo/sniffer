@@ -16,11 +16,7 @@ $sniffer = new \Ayeo\Sniffer\Sniffer(__DIR__."/styles/ruleset.xml", $vendorPath)
 /* @var $file \Ayeo\Sniffer\File */
 foreach ($files as $file) {
     $report = $sniffer->getReport($file);
-
-    if (empty($report) == false)
-    {
-        echo sprintf("\nFile: %s\n", $file->getFileFullPath());
-    }
+    echo sprintf("\nFile: %s\n", $file->getFileFullPath());
 
     /* @var $row \Ayeo\Sniffer\ReportRow */
     foreach ($report as $row) {
