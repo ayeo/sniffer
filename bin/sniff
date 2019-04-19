@@ -11,7 +11,14 @@ $commitSHA = substr(`cd $path && git rev-parse HEAD`, 0, 8);
 $finder = new Ayeo\Sniffer\ChangedFilesFinder($path);
 $files = $finder->findAll($commitSHA);
 
-$sniffer = new \Ayeo\Sniffer\Sniffer(__DIR__."/styles/ruleset.xml", $vendorPath);
+$defaultStandardFile = __DIR__."/../ISystems/ruleset.xml";
+$paramRecognizer = new \Ayeo\Sniffer\ParamRecognizer($argv);
+$standardFile = $paramRecognizer->getStandardFilePath();
+if (null === $standardFile)
+{
+    $standardFile = $defaultStandardFile;
+}
+$sniffer = new \Ayeo\Sniffer\Sniffer($standardFile, $vendorPath);
 
 /* @var $file \Ayeo\Sniffer\File */
 foreach ($files as $file) {
