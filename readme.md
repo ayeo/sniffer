@@ -18,6 +18,10 @@ From your project root directory type:
 ./vendor/bin/sniff
 ```
 
+```
+./vendor/bin/sniff --standard=/path/to/ruleset.xml
+```
+
 Result (example)
 ================
 ```
