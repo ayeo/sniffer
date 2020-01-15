@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<ruleset name="ISystems_v3" namespace="Isystems\Sniffer\Methods">
+    <description>PSR2 without namespaces for each class. Ruleset for Sniffer v3.x</description>
+    <arg name="tab-width" value="4"/>
+
+    <!-- Include the whole PSR-2 standard -->
+    <rule ref="PSR2">
+        <exclude name="PSR2.Methods.MethodDeclaration" />
+        <exclude name="PSR1.Methods.CamelCapsMethodName" />
+    </rule>
+
+    <rule ref="./Sniffs/Methods/" />
+</ruleset>

@@ -11,7 +11,7 @@ $commitSHA = substr(`cd $path && git rev-parse HEAD`, 0, 8);
 $finder = new Ayeo\Sniffer\ChangedFilesFinder($path);
 $files = $finder->findAll($commitSHA);
 
-$defaultStandardFile = __DIR__."/../ISystems/ruleset.xml";
+$defaultStandardFile = __DIR__."/../ISystems_v3/ruleset.xml";
 $paramRecognizer = new \Ayeo\Sniffer\ParamRecognizer($argv);
 $standardFile = $paramRecognizer->getStandardFilePath();
 if (null === $standardFile)
